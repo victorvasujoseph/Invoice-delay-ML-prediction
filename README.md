@@ -137,12 +137,12 @@ For further enhancement:
 
 ---
 
-### Repository Structure
+#### Repository Structure
 
 - **data**: Contains the raw and processed dataset files.
 - **result**: Visualizations and plots used in the README and reports.
 - **README.md**: Documentation (you are here).
-- **InvocieDelay.ipynb** : 
+- **InvoiceDelay.ipynb**: The main Jupyter notebook with all analysis and model code.
 
 
 
