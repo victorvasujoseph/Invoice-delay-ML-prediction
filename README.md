@@ -71,39 +71,39 @@ The project follows these steps:
 - **EarlyStopping**: A callback to stop training when validation loss doesn’t improve, preventing overfitting.
 - **tensorflow (tf)**: To set up and train the neural network model.
 
-## 2. Load and Explore the Dataset
+### 2. Load and Explore the Dataset
 - **Load the Data**: Using `pd.read_csv()`, the dataset is loaded and stored in `df`.
 - **Initial Overview**: Display the first few rows, data types, missing values, and summary statistics using `df.head()`, `df.info()`, and `df.isnull().sum()`. This helps in understanding the structure of the dataset and identifying missing values or irregularities.
 
-## 3. Data Visualization
+### 3. Data Visualization
 - **Distribution Plots**: A loop is used to create distribution plots for each numerical feature to understand their distribution (e.g., normal, skewed).
 - **Target Distribution Plot**: A count plot for the target variable `payment_status` shows the distribution between on-time and delayed payments.
 - **Correlation Heatmap**: For numerical features, a heatmap is generated to visually inspect the correlation between features, helping identify multicollinearity and potential feature interactions.
 
-## 4. Data Preprocessing
+### 4. Data Preprocessing
 - **Missing Value Handling**: Columns with more than 30% missing values are dropped. For remaining missing values, numerical columns are filled with the mean, and categorical columns with the most frequent values.
 - **Encoding Categorical Variables**:
   - **Binary Encoding**: Features like `historical_default` are encoded using `LabelEncoder`.
   - **One-Hot Encoding**: Multi-category features like `home_ownership`, `purchase_intent`, and `credit_grade` are encoded with `pd.get_dummies()`.
 - **Feature Scaling**: Standardize numerical columns with `StandardScaler` to normalize the data, which helps neural network training.
 
-## 5. Feature Engineering
+### 5. Feature Engineering
 - **Column Renaming**: Renaming columns for clarity and ease of understanding.
 - **New Feature**: A new feature, `invoice_to_income_ratio`, is calculated as the ratio of loan amount to annual income, which can be insightful for risk assessment.
 
-## 6. Train-Test Split
+### 6. Train-Test Split
 - **Define Features and Target**: `X` represents the features, and `y` is the target variable (`payment_status`).
 - **Train-Test Split**: The dataset is split into training and testing sets with an 80-20 split using `train_test_split()`. This provides separate data for model training and evaluation.
 
-## 7. Random Forest Model with Hyperparameter Tuning
+### 7. Random Forest Model with Hyperparameter Tuning
 - **Parameter Grid**: Define a parameter grid for `RandomForestClassifier` (e.g., `n_estimators`, `max_depth`).
 - **GridSearchCV**: Use `GridSearchCV` to perform 5-fold cross-validation across multiple parameter combinations to find the best hyperparameters based on accuracy.
 - **Evaluate Performance**: Print the best parameters and cross-validation score, followed by a confusion matrix and classification report on the test set.
 
-## 8. Feature Importance Visualization
+### 8. Feature Importance Visualization
 - **Feature Importance Plot**: Using `best_model.feature_importances_`, the importance of each feature in the Random Forest model is displayed in a bar plot, helping in understanding which features contribute most to the predictions.
 
-## 9. Neural Network Model
+### 9. Neural Network Model
 - **Define Neural Network Architecture**: Use `Sequential` with three hidden layers and dropout for regularization to reduce overfitting.
   - **Input Layer**: First layer with 64 neurons and ReLU activation.
   - **Hidden Layers**: Additional layers with dropout for regularization.
@@ -111,11 +111,11 @@ The project follows these steps:
 - **Compile the Model**: Use the Adam optimizer, binary cross-entropy loss, and track accuracy as the evaluation metric.
 - **Early Stopping**: Set up `EarlyStopping` with patience to halt training if the validation loss doesn’t improve, minimizing overfitting.
 
-## 10. Train the Neural Network
+### 10. Train the Neural Network
 - **Training the Model**: Train the neural network on `X_train` and `y_train` for 30 epochs with validation split and batch size of 32.
 - **Monitor Training**: The `history` object stores training and validation accuracy and loss across epochs for visualization.
 
-## 11. Neural Network Evaluation
+### 11. Neural Network Evaluation
 - **Evaluate on Test Set**: Print final test accuracy to assess the model’s generalization.
 - **Training History Plot**: Plot both accuracy and loss for training and validation sets, allowing visual assessment of the model's training progress and potential overfitting or underfitting signs.
 
