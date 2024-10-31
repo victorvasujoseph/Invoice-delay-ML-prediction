@@ -30,7 +30,7 @@ The data includes the following features:
 - **cb_person_default_on_file**: Historical default information of the customer
 - **cb_person_cred_hist_length**: Customer's credit history length
 
-  ### Data Summary
+### Data Summary
 
 - **Rows**: 6,516 entries, with various columns containing some missing values.
 - **Columns**: 12 columns (5 numerical, 3 floating-point, 4 categorical)
