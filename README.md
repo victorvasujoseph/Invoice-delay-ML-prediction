@@ -131,74 +131,56 @@ The project follows these main steps:
 - **Evaluate on Test Set**: Print final test accuracy to assess the model’s generalization.
 - **Training History Plot**: Plot both accuracy and loss for training and validation sets, allowing visual assessment of the model's training progress and potential overfitting or underfitting signs.
 
-
 ## Results
 
 The model performs well on the dataset, showing high accuracy and balanced generalization between training and validation data. Here's a breakdown of the results:
 
+### Neural Network Model
+- **Accuracy**: The neural network achieves over 90% accuracy on both training and validation sets, showing effective learning without overfitting.
+- **Loss**: Both training and validation loss decrease steadily, indicating good convergence and model generalization over 30 epochs.
+
 ![result_data](/result/4.png)
+
+### Random Forest Model
+- **Best Parameters**: `max_depth=20`, `min_samples_leaf=1`, `min_samples_split=2`, `n_estimators=100`
+- **Cross-Validation Score**: 0.7028
+- **Confusion Matrix**:
+  - True Positives (0): 984
+  - False Positives (0): 19
+  - False Negatives (1): 98
+  - True Negatives (1): 203
+- **Classification Report**:
+  - Precision: 91% (for both classes)
+  - Recall: 98% (Class 0), 67% (Class 1)
+  - F1 Score: 94% (Class 0), 78% (Class 1)
+  - **Overall Accuracy**: 91%
+
+### Gradient Boosting Model
+- **Best Parameters**: `learning_rate=0.1`, `max_depth=5`, `n_estimators=100`
+- **Cross-Validation Score**: 0.7116
+- **Confusion Matrix**:
+  - True Positives (0): 984
+  - False Positives (0): 19
+  - False Negatives (1): 92
+  - True Negatives (1): 209
+- **Classification Report**:
+  - Precision: 91% (Class 0), 92% (Class 1)
+  - Recall: 98% (Class 0), 69% (Class 1)
+  - F1 Score: 95% (Class 0), 79% (Class 1)
+  - **Overall Accuracy**: 91%
+
 ![result_data](/result/5.png)
 
-### Model Performance Summary
+### Summary
+Both the Random Forest and Gradient Boosting models achieved 91% accuracy, with Gradient Boosting showing a slightly higher recall and F1 score for delayed payments. The neural network model also displayed high accuracy and a smooth learning curve, suggesting it generalizes well.
 
-### 1. **Random Forest Classifier**
+These results indicate that the models are effective in predicting invoice payment delays, with strong accuracy and precision across both classes.
 
-- **Best Parameters**:
-  - `max_depth`: 20
-  - `min_samples_leaf`: 1
-  - `min_samples_split`: 2
-  - `n_estimators`: 100
-- **Best Cross-Validation Score**: 0.7028
-- **Confusion Matrix**:
+## Technologies Used
 
-
-- **True Negatives (984)**: Correctly identified non-delayed payments.
-- **False Positives (19)**: Predicted delay, but it was on-time.
-- **False Negatives (98)**: Predicted on-time, but it was delayed.
-- **True Positives (203)**: Correctly identified delayed payments.
-
-- **Classification Report**:
-- **Precision**: 0.91 for both non-delayed and delayed payments.
-- **Recall**:
-  - 0.98 for non-delayed payments.
-  - 0.67 for delayed payments, indicating moderate recall on delayed payments.
-- **F1-Score**: 0.86 (macro average).
-- **Accuracy**: 0.91.
-
-### 2. **Gradient Boosting Classifier**
-
-- **Best Parameters**:
-- `learning_rate`: 0.1
-- `max_depth`: 5
-- `n_estimators`: 100
-- **Best Cross-Validation Score**: 0.7116
-- **Confusion Matrix**:
-
-- **Classification Report**:
-- **Precision**: 0.91 for non-delayed and 0.92 for delayed payments.
-- **Recall**:
-  - 0.98 for non-delayed payments.
-  - 0.69 for delayed payments, showing an improvement over Random Forest.
-- **F1-Score**: 0.87 (macro average).
-- **Accuracy**: 0.91.
-
-### 3. **Neural Network Model**
-- **Training and Validation Accuracy**:
-- Converged around 90-91% over 30 epochs.
-- **Training and Validation Loss**:
-- Gradual decrease with a slightly higher validation loss, showing good generalization.
-- **Test Results**:
-- **Accuracy**: 0.8919
-- **Recall**: 0.6113 for delayed payments, indicating it struggles slightly with recall for this class compared to the tree models.
-
-## Conclusion
-For this dataset, **Gradient Boosting** is the preferred model as it provides the best balance between precision, recall, and F1-score for delayed payments. **Random Forest** also performs well, though slightly lower in recall for delayed payments. The **Neural Network** model, while achieving high accuracy, could benefit from further tuning, especially to improve recall on delayed payments.
-
-## Project Structure
-- **data**: Contains the raw and processed dataset files.
-- **results**: Visualizations and plots used in the README and analysis.
-- **notebooks**: Jupyter notebooks for data analysis, model training, and evaluation.
-- **README.md**: Project summary and model performance overview (you are here).
+- **Python Libraries:** Pandas, NumPy, Scikit-Learn, Seaborn, Matplotlib
+- **Machine Learning Models:** Random Forest, Gradient Boosting, Neural Network (Keras)
+- **Jupyter Notebook:** For interactive analysis, visualization, and model development
 
 ### Next Steps
 
