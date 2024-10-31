@@ -17,18 +17,19 @@ Can we accurately predict whether an invoice will be paid on time based on custo
 ## Data Sources
 
 The data includes the following features:
-- **person_age**: Age of the customer
-- **person_income**: Annual income of the customer
-- **person_home_ownership**: Home ownership status (e.g., Rent, Own, Mortgage)
-- **person_emp_length**: Employment length in years
-- **loan_intent**: Purpose or type of transaction related to the invoice
-- **loan_grade**: Customer credit grade
-- **loan_amnt**: Invoice amount
-- **loan_int_rate**: Interest rate (if applicable)
-- **loan_status**: Target variable indicating whether the invoice is paid on time (0) or delayed (1)
-- **loan_percent_income**: Invoice amount as a percentage of customer income
-- **cb_person_default_on_file**: Historical default information of the customer
-- **cb_person_cred_hist_length**: Customer's credit history length
+
+- **person_age**: Age of the customer (e.g., 24, 27, 30).
+- **person_income**: Annual income of the customer, in dollars (e.g., 28,000, 64,000).
+- **person_home_ownership**: Type of home ownership (e.g., OWN, RENT, MORTGAGE).
+- **person_emp_length**: Employment length in years, indicating the stability of employment (e.g., 6.0, 0.0, 10.0).
+- **loan_intent**: Purpose of the loan, such as HOMEIMPROVEMENT, PERSONAL, EDUCATION, DEBTCONSOLIDATION, and MEDICAL.
+- **loan_grade**: Credit grade assigned to the customer (e.g., A, B, C, D, E).
+- **loan_amnt**: Amount of the loan or invoice, in dollars (e.g., 10,000, 13,000, 16,000).
+- **loan_int_rate**: Interest rate for the loan; some values may be missing.
+- **loan_status**: Payment status, where `0` indicates on-time payment and `1` indicates a delay.
+- **loan_percent_income**: Percentage of the loan amount relative to the customer’s income (e.g., 0.36, 0.16).
+- **cb_person_default_on_file**: Binary indicator showing whether the customer has a history of defaults (`N` for no, `Y` for yes).
+- **cb_person_cred_hist_length**: Length of the customer’s credit history, in years (e.g., 2, 10, 6).
 
 ### Data Summary
 
