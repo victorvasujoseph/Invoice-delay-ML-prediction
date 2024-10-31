@@ -2,7 +2,6 @@
 
 **Author:** Victor Vasu Joseph
 
-
 ## Executive Summary
 
 This project focuses on predicting invoice payment delays based on customer behavior and transaction history. By identifying customers likely to delay payments, businesses can improve cash flow management, streamline accounts receivable, and implement proactive collection strategies.
@@ -31,25 +30,37 @@ The data includes the following features:
 - **cb_person_default_on_file**: Historical default information of the customer
 - **cb_person_cred_hist_length**: Customer's credit history length
 
-## Methodology
+  ### Data Summary
 
-The project follows these steps:
-1. **Data Preprocessing**: Handling missing values, encoding categorical features, and scaling numeric variables.
-2. **Model Training**:
-   - **Random Forest**: Trained with hyperparameter tuning using GridSearchCV to optimize performance.
-   - **Neural Network**: Trained using Keras with a structured architecture, using dropout layers to prevent overfitting.
-3. **Evaluation**:
-   - **Random Forest**: Evaluated with a confusion matrix, classification report, and accuracy score.
-   - **Neural Network**: Evaluated using accuracy and loss curves, and tested on a hold-out set to assess generalization.
+- **Rows**: 6,516 entries, with various columns containing some missing values.
+- **Columns**: 12 columns (5 numerical, 3 floating-point, 4 categorical)
+  
+This dataset provides a comprehensive view of customer demographics, transaction information, and payment behaviors, which form the basis for predicting invoice delays.
 
+## Project Workflow
 
-### Project Structure
+The project follows these main steps:
 
-- **Data Preprocessing and EDA**: Handles missing values, feature encoding, and scaling.
-- **Model Training and Tuning**: Builds and tunes both the Random Forest and Neural Network models.
-- **Evaluation and Analysis**: Provides insights into model performance using confusion matrices, accuracy/loss plots, and classification metrics.
+### 1. Data Preprocessing
+   - **Missing Values:** Columns with significant missing values were dropped, and imputation techniques were applied to handle minor gaps.
+   - **Feature Engineering:** New features were created, such as the invoice-to-income ratio, to add predictive value.
+   - **Column Renaming:** Columns were renamed for better readability and consistency.
+   - **Encoding Categorical Variables:** Categorical features were transformed into a format suitable for machine learning models using binary and multi-category encoding.
 
----
+### 2. Exploratory Data Analysis (EDA)
+   - **Distribution Analysis:** Visualized distributions for numerical features to understand their patterns and identify potential outliers.
+   - **Count Plots for Categorical Variables:** Examined distributions of categorical data, providing insights into customer demographics and behaviors.
+   - **Correlation Analysis:** Generated a correlation heatmap to identify relationships among numerical features, aiding in feature selection.
+
+### 3. Model Training and Evaluation
+   - **Algorithms Used:** Trained models including Random Forest, Gradient Boosting, and a Neural Network (using Keras) to predict payment delays.
+   - **Hyperparameter Tuning:** Optimized model parameters using grid search to improve accuracy.
+   - **Evaluation Metrics:** Measured performance using metrics such as accuracy, precision, recall, F1-score, and a confusion matrix.
+
+### 4. Model Selection
+   - **Feature Importance:** Assessed feature importance to determine which variables had the greatest impact on predicting delays.
+   - **Performance Comparison:** Selected the model with the best combination of metrics, establishing it as the primary prediction tool.
+
 
 #### Repository Structure
 
