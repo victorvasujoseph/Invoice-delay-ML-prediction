@@ -63,7 +63,7 @@ The project follows these main steps:
    - **Performance Comparison:** Selected the model with the best combination of metrics, establishing it as the primary prediction tool.
 
 
-#### Repository Structure
+### Repository Structure
 
 - **data**: Contains the raw and processed dataset files.
 - **result**: Visualizations and plots used in the README and reports.
