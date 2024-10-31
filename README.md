@@ -104,7 +104,8 @@ The model performs well on the dataset, showing high accuracy and balanced gener
 - **Best Parameters**: Through hyperparameter tuning with GridSearchCV, the best parameters were identified, achieving a cross-validation score of approximately 90.9%.
 - **Confusion Matrix and Classification Report**: The model shows strong precision and recall for both classes, with an overall accuracy of 91%. This indicates that the Random Forest model is effective in distinguishing between defaults and non-defaults.
 
-  ![result_data](/result/1.png)
+  ![result_data](/result/2.png)
+  ![result_data](/result/3.png)
 
 #### Neural Network Model:
 
@@ -112,6 +113,8 @@ The model performs well on the dataset, showing high accuracy and balanced gener
 - **Validation Accuracy**: The convergence of validation accuracy close to training accuracy without major divergence suggests good generalization with minimal overfitting.
 - **Loss Trends**: Both training and validation losses decrease and stabilize, further indicating that the model has learned effectively from the data.
 
+  ![result_data](/result/1.png)
+  
 ### Conclusion:
 
 - Both the Random Forest and Neural Network models demonstrate high accuracy and good generalization capabilities.
