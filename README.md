@@ -60,55 +60,65 @@ The project follows these steps:
 
 ## Step-by-Step Code Explanation
 
-#### 1. Import Libraries:
+### 1. Import Libraries
+- **pandas, numpy**: Used for data manipulation and numerical operations.
+- **seaborn, matplotlib.pyplot**: For creating visualizations to explore data distributions and correlations.
+- **train_test_split, GridSearchCV**: From `sklearn.model_selection`, used for splitting the dataset and performing hyperparameter tuning via grid search.
+- **StandardScaler, LabelEncoder, SimpleImputer**: From `sklearn.preprocessing`, used for feature scaling, encoding categorical features, and imputing missing values.
+- **RandomForestClassifier**: A tree-based model to predict loan status.
+- **classification_report, confusion_matrix**: Used to evaluate the classification model.
+- **Sequential, Dense, Dropout**: Layers from `tensorflow.keras` for building the neural network.
+- **EarlyStopping**: A callback to stop training when validation loss doesn’t improve, preventing overfitting.
+- **tensorflow (tf)**: To set up and train the neural network model.
 
-- **pandas, numpy**: For data manipulation and numerical operations.
-- **train_test_split, StandardScaler**: To split the dataset and scale features for better neural network performance.
-- **RandomForestClassifier, GridSearchCV**: For training and hyperparameter tuning of the Random Forest model.
-- **Sequential, Dense, Dropout**: For building and training the neural network.
-- **matplotlib, seaborn**: For data visualization.
+## 2. Load and Explore the Dataset
+- **Load the Data**: Using `pd.read_csv()`, the dataset is loaded and stored in `df`.
+- **Initial Overview**: Display the first few rows, data types, missing values, and summary statistics using `df.head()`, `df.info()`, and `df.isnull().sum()`. This helps in understanding the structure of the dataset and identifying missing values or irregularities.
 
-#### 2. Load and Explore the Dataset:
+## 3. Data Visualization
+- **Distribution Plots**: A loop is used to create distribution plots for each numerical feature to understand their distribution (e.g., normal, skewed).
+- **Target Distribution Plot**: A count plot for the target variable `payment_status` shows the distribution between on-time and delayed payments.
+- **Correlation Heatmap**: For numerical features, a heatmap is generated to visually inspect the correlation between features, helping identify multicollinearity and potential feature interactions.
 
-- Load the dataset using pd.read_csv() and display the first few rows using df.head().
-- Print an overview of the dataset, including the column data types, any missing values, and basic statistics. This helps identify the structure of the data and spot any columns that might need cleaning.
+## 4. Data Preprocessing
+- **Missing Value Handling**: Columns with more than 30% missing values are dropped. For remaining missing values, numerical columns are filled with the mean, and categorical columns with the most frequent values.
+- **Encoding Categorical Variables**:
+  - **Binary Encoding**: Features like `historical_default` are encoded using `LabelEncoder`.
+  - **One-Hot Encoding**: Multi-category features like `home_ownership`, `purchase_intent`, and `credit_grade` are encoded with `pd.get_dummies()`.
+- **Feature Scaling**: Standardize numerical columns with `StandardScaler` to normalize the data, which helps neural network training.
 
-#### 3. Data Preprocessing:
+## 5. Feature Engineering
+- **Column Renaming**: Renaming columns for clarity and ease of understanding.
+- **New Feature**: A new feature, `invoice_to_income_ratio`, is calculated as the ratio of loan amount to annual income, which can be insightful for risk assessment.
 
-- **Handle Missing Values**: Fill missing values in numerical columns like person_emp_length and loan_int_rate with the median, a common technique for handling missing data in ML.
-- **Encoding Categorical Variables**: Convert categorical columns, such as person_home_ownership, loan_intent, loan_grade, and cb_person_default_on_file, into numerical format using one-hot encoding (pd.get_dummies). This is necessary as machine learning models work best with numerical data.
-- **Feature Scaling**: Standardize the numerical features using StandardScaler. This helps neural networks train more efficiently.
+## 6. Train-Test Split
+- **Define Features and Target**: `X` represents the features, and `y` is the target variable (`payment_status`).
+- **Train-Test Split**: The dataset is split into training and testing sets with an 80-20 split using `train_test_split()`. This provides separate data for model training and evaluation.
 
-#### 4. Feature Selection and Target Variable:
+## 7. Random Forest Model with Hyperparameter Tuning
+- **Parameter Grid**: Define a parameter grid for `RandomForestClassifier` (e.g., `n_estimators`, `max_depth`).
+- **GridSearchCV**: Use `GridSearchCV` to perform 5-fold cross-validation across multiple parameter combinations to find the best hyperparameters based on accuracy.
+- **Evaluate Performance**: Print the best parameters and cross-validation score, followed by a confusion matrix and classification report on the test set.
 
-- Define the target variable y (loan_status) and feature matrix X.
-- Perform a train-test split, typically with a 80-20 ratio, for training and evaluation.
+## 8. Feature Importance Visualization
+- **Feature Importance Plot**: Using `best_model.feature_importances_`, the importance of each feature in the Random Forest model is displayed in a bar plot, helping in understanding which features contribute most to the predictions.
 
-#### 5. Random Forest Model with Hyperparameter Tuning:
+## 9. Neural Network Model
+- **Define Neural Network Architecture**: Use `Sequential` with three hidden layers and dropout for regularization to reduce overfitting.
+  - **Input Layer**: First layer with 64 neurons and ReLU activation.
+  - **Hidden Layers**: Additional layers with dropout for regularization.
+  - **Output Layer**: A single neuron with a sigmoid activation, suitable for binary classification.
+- **Compile the Model**: Use the Adam optimizer, binary cross-entropy loss, and track accuracy as the evaluation metric.
+- **Early Stopping**: Set up `EarlyStopping` with patience to halt training if the validation loss doesn’t improve, minimizing overfitting.
 
-- Set up a RandomForestClassifier to understand the baseline performance and identify feature importance.
-- Use GridSearchCV for hyperparameter tuning, specifying a grid of parameters like n_estimators, max_depth, and min_samples_split.
-- Run the grid search with cross-validation, allowing the model to automatically select the best parameters based on performance.
+## 10. Train the Neural Network
+- **Training the Model**: Train the neural network on `X_train` and `y_train` for 30 epochs with validation split and batch size of 32.
+- **Monitor Training**: The `history` object stores training and validation accuracy and loss across epochs for visualization.
 
-#### 6. Evaluate Random Forest Performance:
+## 11. Neural Network Evaluation
+- **Evaluate on Test Set**: Print final test accuracy to assess the model’s generalization.
+- **Training History Plot**: Plot both accuracy and loss for training and validation sets, allowing visual assessment of the model's training progress and potential overfitting or underfitting signs.
 
-- Print the best parameters and the cross-validation score obtained from GridSearchCV.
-- Calculate and print the confusion matrix and classification report, which give insight into precision, recall, and F1-score for each class.
-
-#### 7. Neural Network Model:
-
-- **Define Architecture**: Use Keras’ Sequential model with fully connected (Dense) layers. The final layer has a single neuron with a sigmoid activation, ideal for binary classification.
-- **Compile the Model**: Specify loss (binary_crossentropy), optimizer (adam), and evaluation metric (accuracy).
-- **Train the Model**: Use model.fit() with a set number of epochs (e.g., 30), batch size, and split the data further into training and validation.
-
-#### 8. Plot Training Progress:
-
-Plot the model accuracy and loss for both training and validation sets. This allows us to monitor the training process and check for overfitting or underfitting.
-
-#### 9. Neural Network Evaluation:
-
-Evaluate the model on the test set to see its accuracy and loss after training.
-Print out the test accuracy for final performance evaluation.
 
 ## Results
 
