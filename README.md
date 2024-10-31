@@ -3,19 +3,19 @@
 **Author:** Victor Vasu Joseph
 
 
-### Executive Summary
+## Executive Summary
 
 This project focuses on predicting invoice payment delays based on customer behavior and transaction history. By identifying customers likely to delay payments, businesses can improve cash flow management, streamline accounts receivable, and implement proactive collection strategies.
 
-### Rationale
+## Rationale
 
 Delayed payments are a significant challenge in managing cash flow for businesses. Predicting payment delays allows companies to take preemptive measures, prioritize follow-ups, and reduce the risk associated with late payments. This project leverages machine learning to offer predictive insights, assisting finance teams in efficient accounts receivable management.
 
-### Research Question
+## Research Question
 
 Can we accurately predict whether an invoice will be paid on time based on customer behavior and transaction characteristics?
 
-### Data Sources
+## Data Sources
 
 The data includes the following features:
 - **person_age**: Age of the customer
@@ -31,7 +31,7 @@ The data includes the following features:
 - **cb_person_default_on_file**: Historical default information of the customer
 - **cb_person_cred_hist_length**: Customer's credit history length
 
-### Methodology
+## Methodology
 
 The project follows these steps:
 1. **Data Preprocessing**: Handling missing values, encoding categorical features, and scaling numeric variables.
@@ -43,7 +43,7 @@ The project follows these steps:
    - **Neural Network**: Evaluated using accuracy and loss curves, and tested on a hold-out set to assess generalization.
 
 
-### Step-by-Step Code Explanation
+## Step-by-Step Code Explanation
 
 #### 1. Import Libraries:
 
@@ -95,30 +95,72 @@ Plot the model accuracy and loss for both training and validation sets. This all
 Evaluate the model on the test set to see its accuracy and loss after training.
 Print out the test accuracy for final performance evaluation.
 
-### Results
+![result_data](/result/2.png)
+
+## Results
 
 The model performs well on the dataset, showing high accuracy and balanced generalization between training and validation data. Here's a breakdown of the results:
 
-#### Random Forest Model:
+### Model Performance Summary
 
-- **Best Parameters**: Through hyperparameter tuning with GridSearchCV, the best parameters were identified, achieving a cross-validation score of approximately 90.9%.
-- **Confusion Matrix and Classification Report**: The model shows strong precision and recall for both classes, with an overall accuracy of 91%. This indicates that the Random Forest model is effective in distinguishing between defaults and non-defaults.
+### 1. **Random Forest Classifier**
 
-  ![result_data](/result/2.png)
+- **Best Parameters**:
+  - `max_depth`: 20
+  - `min_samples_leaf`: 1
+  - `min_samples_split`: 2
+  - `n_estimators`: 100
+- **Best Cross-Validation Score**: 0.7028
+- **Confusion Matrix**:
 
-#### Neural Network Model:
 
-- **Training Accuracy**: The model converged well, with both training and validation accuracy reaching around 90% by the end of 30 epochs.
-- **Validation Accuracy**: The convergence of validation accuracy close to training accuracy without major divergence suggests good generalization with minimal overfitting.
-- **Loss Trends**: Both training and validation losses decrease and stabilize, further indicating that the model has learned effectively from the data.
+- **True Negatives (984)**: Correctly identified non-delayed payments.
+- **False Positives (19)**: Predicted delay, but it was on-time.
+- **False Negatives (98)**: Predicted on-time, but it was delayed.
+- **True Positives (203)**: Correctly identified delayed payments.
 
-  ![result_data](/result/1.png)
-  
-### Conclusion:
+- **Classification Report**:
+- **Precision**: 0.91 for both non-delayed and delayed payments.
+- **Recall**:
+  - 0.98 for non-delayed payments.
+  - 0.67 for delayed payments, indicating moderate recall on delayed payments.
+- **F1-Score**: 0.86 (macro average).
+- **Accuracy**: 0.91.
 
-- Both the Random Forest and Neural Network models demonstrate high accuracy and good generalization capabilities.
-- The absence of significant overfitting, as seen from the validation curves in both models, indicates that the preprocessing and regularization were effective.
-- These results suggest that the models are capable of accurately predicting loan defaults and non-defaults, making them valuable for credit risk analysis and helping financial institutions manage risk effectively.
+### 2. **Gradient Boosting Classifier**
+
+- **Best Parameters**:
+- `learning_rate`: 0.1
+- `max_depth`: 5
+- `n_estimators`: 100
+- **Best Cross-Validation Score**: 0.7116
+- **Confusion Matrix**:
+
+- **Classification Report**:
+- **Precision**: 0.91 for non-delayed and 0.92 for delayed payments.
+- **Recall**:
+  - 0.98 for non-delayed payments.
+  - 0.69 for delayed payments, showing an improvement over Random Forest.
+- **F1-Score**: 0.87 (macro average).
+- **Accuracy**: 0.91.
+
+### 3. **Neural Network Model**
+- **Training and Validation Accuracy**:
+- Converged around 90-91% over 30 epochs.
+- **Training and Validation Loss**:
+- Gradual decrease with a slightly higher validation loss, showing good generalization.
+- **Test Results**:
+- **Accuracy**: 0.8919
+- **Recall**: 0.6113 for delayed payments, indicating it struggles slightly with recall for this class compared to the tree models.
+
+## Conclusion
+For this dataset, **Gradient Boosting** is the preferred model as it provides the best balance between precision, recall, and F1-score for delayed payments. **Random Forest** also performs well, though slightly lower in recall for delayed payments. The **Neural Network** model, while achieving high accuracy, could benefit from further tuning, especially to improve recall on delayed payments.
+
+## Project Structure
+- **data**: Contains the raw and processed dataset files.
+- **results**: Visualizations and plots used in the README and analysis.
+- **notebooks**: Jupyter notebooks for data analysis, model training, and evaluation.
+- **README.md**: Project summary and model performance overview (you are here).
 
 ### Next Steps
 
@@ -144,5 +186,6 @@ For further enhancement:
 - **README.md**: Documentation (you are here).
 - **InvoiceDelay.ipynb**: The main Jupyter notebook with all analysis and model code.
 
-
+## Credits
+Data for this project was sourced from [Kaggle's Credit Risk Dataset](https://www.kaggle.com/datasets/laotse/credit-risk-dataset).
 
