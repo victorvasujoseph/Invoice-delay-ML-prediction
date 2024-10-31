@@ -105,7 +105,6 @@ The model performs well on the dataset, showing high accuracy and balanced gener
 - **Confusion Matrix and Classification Report**: The model shows strong precision and recall for both classes, with an overall accuracy of 91%. This indicates that the Random Forest model is effective in distinguishing between defaults and non-defaults.
 
   ![result_data](/result/2.png)
-  ![result_data](/result/3.png)
 
 #### Neural Network Model:
 
