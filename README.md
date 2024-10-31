@@ -97,8 +97,24 @@ Print out the test accuracy for final performance evaluation.
 
 ### Results
 
-- **Random Forest Model**: Achieved high accuracy in predicting invoice delays, with clear separation between timely and delayed payments in the confusion matrix.
-- **Neural Network Model**: Converged well with consistent training and validation accuracies around 90%, showing that the model generalizes well with minimal overfitting.
+The model performs well on the dataset, showing high accuracy and balanced generalization between training and validation data. Here's a breakdown of the results:
+
+#### Random Forest Model:
+
+- **Best Parameters**: Through hyperparameter tuning with GridSearchCV, the best parameters were identified, achieving a cross-validation score of approximately 90.9%.
+- **Confusion Matrix and Classification Report**: The model shows strong precision and recall for both classes, with an overall accuracy of 91%. This indicates that the Random Forest model is effective in distinguishing between defaults and non-defaults.
+
+##### Neural Network Model:
+
+- **Training Accuracy**: The model converged well, with both training and validation accuracy reaching around 90% by the end of 30 epochs.
+- **Validation Accuracy**: The convergence of validation accuracy close to training accuracy without major divergence suggests good generalization with minimal overfitting.
+- **Loss Trends**: Both training and validation losses decrease and stabilize, further indicating that the model has learned effectively from the data.
+
+### Conclusion:
+
+- Both the Random Forest and Neural Network models demonstrate high accuracy and good generalization capabilities.
+- The absence of significant overfitting, as seen from the validation curves in both models, indicates that the preprocessing and regularization were effective.
+- These results suggest that the models are capable of accurately predicting loan defaults and non-defaults, making them valuable for credit risk analysis and helping financial institutions manage risk effectively.
 
 ### Next Steps
 
@@ -119,13 +135,10 @@ For further enhancement:
 
 ### Repository Structure
 
-- **notebooks**:
-  - [01_Data_Preprocessing_and_EDA.ipynb](#) - Initial data cleaning, preprocessing, and exploratory data analysis.
-  - [02_Random_Forest_Model.ipynb](#) - Training and optimizing the Random Forest model.
-  - [03_Neural_Network_Model.ipynb](#) - Training and evaluation of the neural network model.
 - **data**: Contains the raw and processed dataset files.
-- **images**: Visualizations and plots used in the README and reports.
+- **result**: Visualizations and plots used in the README and reports.
 - **README.md**: Documentation (you are here).
+- **InvocieDelay.ipynb** : 
 
 
 
