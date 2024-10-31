@@ -95,11 +95,12 @@ Plot the model accuracy and loss for both training and validation sets. This all
 Evaluate the model on the test set to see its accuracy and loss after training.
 Print out the test accuracy for final performance evaluation.
 
-![result_data](/result/2.png)
-
 ## Results
 
 The model performs well on the dataset, showing high accuracy and balanced generalization between training and validation data. Here's a breakdown of the results:
+
+![result_data](/result/4.png)
+![result_data](/result/5.png)
 
 ### Model Performance Summary
 
