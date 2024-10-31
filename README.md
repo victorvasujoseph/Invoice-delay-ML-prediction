@@ -43,6 +43,21 @@ The project follows these steps:
    - **Neural Network**: Evaluated using accuracy and loss curves, and tested on a hold-out set to assess generalization.
 
 
+### Project Structure
+
+- **Data Preprocessing and EDA**: Handles missing values, feature encoding, and scaling.
+- **Model Training and Tuning**: Builds and tunes both the Random Forest and Neural Network models.
+- **Evaluation and Analysis**: Provides insights into model performance using confusion matrices, accuracy/loss plots, and classification metrics.
+
+---
+
+#### Repository Structure
+
+- **data**: Contains the raw and processed dataset files.
+- **result**: Visualizations and plots used in the README and reports.
+- **README.md**: Documentation (you are here).
+- **InvoiceDelay.ipynb**: The main Jupyter notebook with all analysis and model code.
+
 ## Step-by-Step Code Explanation
 
 #### 1. Import Libraries:
@@ -171,21 +186,6 @@ For further enhancement:
 - Explore ensemble stacking methods to combine model predictions for improved accuracy.
 
 ---
-
-### Project Structure
-
-- **Data Preprocessing and EDA**: Handles missing values, feature encoding, and scaling.
-- **Model Training and Tuning**: Builds and tunes both the Random Forest and Neural Network models.
-- **Evaluation and Analysis**: Provides insights into model performance using confusion matrices, accuracy/loss plots, and classification metrics.
-
----
-
-#### Repository Structure
-
-- **data**: Contains the raw and processed dataset files.
-- **result**: Visualizations and plots used in the README and reports.
-- **README.md**: Documentation (you are here).
-- **InvoiceDelay.ipynb**: The main Jupyter notebook with all analysis and model code.
 
 ## Credits
 Data for this project was sourced from [Kaggle's Credit Risk Dataset](https://www.kaggle.com/datasets/laotse/credit-risk-dataset).
