@@ -45,18 +45,18 @@ The project follows these steps:
 
 ### Step-by-Step Code Explanation
 
-#### 1. Import Libraries:
+### 1. Import Libraries:
 
-**pandas, numpy**: For data manipulation and numerical operations.
-train_test_split, StandardScaler: To split the dataset and scale features for better neural network performance.
-RandomForestClassifier, GridSearchCV: For training and hyperparameter tuning of the Random Forest model.
-Sequential, Dense, Dropout: For building and training the neural network.
-matplotlib, seaborn: For data visualization.
+- **pandas, numpy**: For data manipulation and numerical operations.
+- **train_test_split, StandardScaler**: To split the dataset and scale features for better neural network performance.
+- **RandomForestClassifier, GridSearchCV**: For training and hyperparameter tuning of the Random Forest model.
+- **Sequential, Dense, Dropout**: For building and training the neural network.
+- **matplotlib, seaborn**: For data visualization.
 
-2. Load and Explore the Dataset:
+### 2. Load and Explore the Dataset:
 
-Load the dataset using pd.read_csv() and display the first few rows using df.head().
-Print an overview of the dataset, including the column data types, any missing values, and basic statistics. This helps identify the structure of the data and spot any columns that might need cleaning.
+- Load the dataset using pd.read_csv() and display the first few rows using df.head().
+- Print an overview of the dataset, including the column data types, any missing values, and basic statistics. This helps identify the structure of the data and spot any columns that might need cleaning.
 
 3. Data Preprocessing:
 
