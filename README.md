@@ -3,19 +3,19 @@
 **Author:** Victor Vasu Joseph
 
 
-### Executive Summary
+## Executive Summary
 
 This project focuses on predicting invoice payment delays based on customer behavior and transaction history. By identifying customers likely to delay payments, businesses can improve cash flow management, streamline accounts receivable, and implement proactive collection strategies.
 
-### Rationale
+## Rationale
 
 Delayed payments are a significant challenge in managing cash flow for businesses. Predicting payment delays allows companies to take preemptive measures, prioritize follow-ups, and reduce the risk associated with late payments. This project leverages machine learning to offer predictive insights, assisting finance teams in efficient accounts receivable management.
 
-### Research Question
+## Research Question
 
 Can we accurately predict whether an invoice will be paid on time based on customer behavior and transaction characteristics?
 
-### Data Sources
+## Data Sources
 
 The data includes the following features:
 - **person_age**: Age of the customer
@@ -31,7 +31,7 @@ The data includes the following features:
 - **cb_person_default_on_file**: Historical default information of the customer
 - **cb_person_cred_hist_length**: Customer's credit history length
 
-### Methodology
+## Methodology
 
 The project follows these steps:
 1. **Data Preprocessing**: Handling missing values, encoding categorical features, and scaling numeric variables.
@@ -43,7 +43,7 @@ The project follows these steps:
    - **Neural Network**: Evaluated using accuracy and loss curves, and tested on a hold-out set to assess generalization.
 
 
-### Step-by-Step Code Explanation
+## Step-by-Step Code Explanation
 
 #### 1. Import Libraries:
 
@@ -97,11 +97,11 @@ Print out the test accuracy for final performance evaluation.
 
 ![result_data](/result/2.png)
 
-### Results
+## Results
 
 The model performs well on the dataset, showing high accuracy and balanced generalization between training and validation data. Here's a breakdown of the results:
 
-## Model Performance Summary
+### Model Performance Summary
 
 ### 1. **Random Forest Classifier**
 
