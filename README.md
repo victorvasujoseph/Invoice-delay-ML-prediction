@@ -45,7 +45,7 @@ The project follows these steps:
 
 ### Step-by-Step Code Explanation
 
-### 1. Import Libraries:
+#### 1. Import Libraries:
 
 - **pandas, numpy**: For data manipulation and numerical operations.
 - **train_test_split, StandardScaler**: To split the dataset and scale features for better neural network performance.
@@ -53,44 +53,44 @@ The project follows these steps:
 - **Sequential, Dense, Dropout**: For building and training the neural network.
 - **matplotlib, seaborn**: For data visualization.
 
-### 2. Load and Explore the Dataset:
+#### 2. Load and Explore the Dataset:
 
 - Load the dataset using pd.read_csv() and display the first few rows using df.head().
 - Print an overview of the dataset, including the column data types, any missing values, and basic statistics. This helps identify the structure of the data and spot any columns that might need cleaning.
 
-3. Data Preprocessing:
+#### 3. Data Preprocessing:
 
-Handle Missing Values: Fill missing values in numerical columns like person_emp_length and loan_int_rate with the median, a common technique for handling missing data in ML.
-Encoding Categorical Variables: Convert categorical columns, such as person_home_ownership, loan_intent, loan_grade, and cb_person_default_on_file, into numerical format using one-hot encoding (pd.get_dummies). This is necessary as machine learning models work best with numerical data.
-Feature Scaling: Standardize the numerical features using StandardScaler. This helps neural networks train more efficiently.
+- **Handle Missing Values**: Fill missing values in numerical columns like person_emp_length and loan_int_rate with the median, a common technique for handling missing data in ML.
+- **Encoding Categorical Variables**: Convert categorical columns, such as person_home_ownership, loan_intent, loan_grade, and cb_person_default_on_file, into numerical format using one-hot encoding (pd.get_dummies). This is necessary as machine learning models work best with numerical data.
+- **Feature Scaling**: Standardize the numerical features using StandardScaler. This helps neural networks train more efficiently.
 
-4. Feature Selection and Target Variable:
+#### 4. Feature Selection and Target Variable:
 
-Define the target variable y (loan_status) and feature matrix X.
-Perform a train-test split, typically with a 80-20 ratio, for training and evaluation.
+- Define the target variable y (loan_status) and feature matrix X.
+- Perform a train-test split, typically with a 80-20 ratio, for training and evaluation.
 
-5. Random Forest Model with Hyperparameter Tuning:
+#### 5. Random Forest Model with Hyperparameter Tuning:
 
-Set up a RandomForestClassifier to understand the baseline performance and identify feature importance.
-Use GridSearchCV for hyperparameter tuning, specifying a grid of parameters like n_estimators, max_depth, and min_samples_split.
-Run the grid search with cross-validation, allowing the model to automatically select the best parameters based on performance.
+- Set up a RandomForestClassifier to understand the baseline performance and identify feature importance.
+- Use GridSearchCV for hyperparameter tuning, specifying a grid of parameters like n_estimators, max_depth, and min_samples_split.
+- Run the grid search with cross-validation, allowing the model to automatically select the best parameters based on performance.
 
-6. Evaluate Random Forest Performance:
+#### 6. Evaluate Random Forest Performance:
 
-Print the best parameters and the cross-validation score obtained from GridSearchCV.
-Calculate and print the confusion matrix and classification report, which give insight into precision, recall, and F1-score for each class.
+- Print the best parameters and the cross-validation score obtained from GridSearchCV.
+- Calculate and print the confusion matrix and classification report, which give insight into precision, recall, and F1-score for each class.
 
-7. Neural Network Model:
+#### 7. Neural Network Model:
 
-Define Architecture: Use Keras’ Sequential model with fully connected (Dense) layers. The final layer has a single neuron with a sigmoid activation, ideal for binary classification.
-Compile the Model: Specify loss (binary_crossentropy), optimizer (adam), and evaluation metric (accuracy).
-Train the Model: Use model.fit() with a set number of epochs (e.g., 30), batch size, and split the data further into training and validation.
+- **Define Architecture**: Use Keras’ Sequential model with fully connected (Dense) layers. The final layer has a single neuron with a sigmoid activation, ideal for binary classification.
+- **Compile the Model**: Specify loss (binary_crossentropy), optimizer (adam), and evaluation metric (accuracy).
+- **Train the Model**: Use model.fit() with a set number of epochs (e.g., 30), batch size, and split the data further into training and validation.
 
-8. Plot Training Progress:
+#### 8. Plot Training Progress:
 
 Plot the model accuracy and loss for both training and validation sets. This allows us to monitor the training process and check for overfitting or underfitting.
 
-9. Neural Network Evaluation:
+#### 9. Neural Network Evaluation:
 
 Evaluate the model on the test set to see its accuracy and loss after training.
 Print out the test accuracy for final performance evaluation.
