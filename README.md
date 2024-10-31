@@ -74,9 +74,5 @@ For further enhancement:
 - **images**: Visualizations and plots used in the README and reports.
 - **README.md**: Documentation (you are here).
 
----
 
-### Contact and Further Information
-
-For questions or further information, please contact [Your Email].
 
